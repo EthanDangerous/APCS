@@ -1,0 +1,24 @@
+use of arrays (done)
+buttons shown (hit stand and total reset, which restarts af if you close the program and reopen)
+cards with num/suit (done)
+cards are shuffled at beginning (done)
+user can hit (done)
+user can stand (done. when you stand you get points and can not continue unless you get a new hand using the new hand button or reset)
+total card value (done)
+total player points (done, marked as "score")
+winning points table (done, includes the price for getting a new hand)
+game ends when player stands or goes over 21 (done, if they stand they are unable to hit again or stand again...
+..., if they go over 21 then they cannot hit or stand unless you get a new hand or reset)
+lose message (done, if the player busts when they have 0 points then they get a lose message and can only reset the full game)
+
+challenge:
+add sounds (done, there are around 5 sounds for various effects)
+
+note:
+if a player gets a new hand without standing first, the game will attempt to score
+it regardless. if no points can be gained it does nothing, otherwise it gives you
+the correct amount (though you still lose a point for getting a new hand,
+so it may feel like you are getting on less point)
+
+
+
