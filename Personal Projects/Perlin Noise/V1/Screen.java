@@ -6,7 +6,7 @@ import java.awt.Dimension;
 class Screen extends JPanel {
 
     private int x = 100;
-    private Perlin perlin = new Perlin(20, 40);
+    private Perlin perlin = new Perlin(4, 80, Math.sqrt(2)/2);
 
     public Dimension getPreferredSize() {
 //        return new Dimension(1920, 1080);
