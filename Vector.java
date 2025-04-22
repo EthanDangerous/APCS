@@ -17,10 +17,16 @@ public class Vector {
         this.y = y2-y;
     }
 
-    public void drawMe(Graphics g, int baseX, int baseY /* and whatever else you deem necessary */ ) {
-        // draw a line going from (baseX, baseY) to (baseX + x, baseY + y)
+//    public void drawMe(Graphics g, int baseX, int baseY /* and whatever else you deem necessary */ ) {
+//        // draw a line going from (baseX, baseY) to (baseX + x, baseY + y)
+//        g.setColor(Color.RED);
+//        g.drawLine(baseX, baseY, baseX + x, baseY + y);
+//    }
+
+    public void drawMe(Graphics g, int baseX, int baseY, double scale /* and whatever else you deem necessary */) {
+        // draw a line going from (baseX, baseY) to (baseX + x * scale, baseY + y * scale)
         g.setColor(Color.RED);
-        g.drawLine(baseX, baseY, baseX + x, baseY + y);
+        g.drawLine(baseX, baseY, baseX + (int)(x * scale), baseY + (int)(y * scale));
     }
 
     public double dotProduct(Vector other) {
