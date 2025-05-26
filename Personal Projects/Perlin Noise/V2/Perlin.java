@@ -29,7 +29,7 @@ public class Perlin {
                 double angle = Math.random() * 2 * Math.PI; // random angle in radians
                 // this means the length of each vector can be no more than 1 pixel in length. fix this in the draw code
 //                vectors[i][j] = new Vector((int)(Math.cos(angle) * gridResolution * Math.sqrt(2)/2), (int)(Math.sin(angle) * gridResolution * Math.sqrt(2)/2));
-                vectors[i][j] = new Vector((int)(Math.cos(angle) / gridResolution * Math.sqrt(2)), (int)(Math.sin(angle) / gridResolution * Math.sqrt(2)));
+                vectors[i][j] = new Vector(Math.cos(angle) / gridResolution * Math.sqrt(2), Math.sin(angle) / gridResolution * Math.sqrt(2));
             }
         }
 
@@ -46,7 +46,8 @@ public class Perlin {
 
                 // (x,y)'s displacement from the base of closestVector
                 // i add 0.5 to each of them to signify the center of the pixel, instead of the top left (i don't know if the effect of doing this is significant though)
-                Vector displacementVector = new Vector(closestVectorX * gridResolution, closestVectorY * gridResolution, x, y);                double dotProduct = closestVector.dotProduct(displacementVector);
+                Vector displacementVector = new Vector(closestVectorX * gridResolution, closestVectorY * gridResolution, x, y);
+                double dotProduct = closestVector.dotProduct(displacementVector);
                 pixels[y][x] = dotProduct;
 //                pixels[y][x] = dotProduct / Math.sqrt(2) / gridResolution; // ** the (*) disclaimer is only true if you start doing the interpolation step. without interpolation, your maximum value for the dot product and therefore your pixel value is √2 * gridResolution. this division here make the values in pixels all within the range [-1.0, 1.0] (***: untested and unverified. i only know that the (*) disclaimer is true)
 //                if(x == 1 && y % 50 == 0){
@@ -67,13 +68,15 @@ public class Perlin {
                     colorVal=0;
                 }
                 g.setColor(new Color(colorVal, colorVal, colorVal));
-                g.drawRect(i, j, 1, 1);
+                g.drawRect(j, i, 1, 1);
             }
         }
         for (int i = 0; i <= vectors.length-1; i++) {
             for (int j = 0; j <= vectors[i].length-1; j++) {
                 g.setColor(Color.RED);
-                vectors[i][j].drawMe(g, i*gridResolution, j*gridResolution, size);
+//                vectors[i][j].drawMe(g, j*gridResolution, i*gridResolution, 20 * gridResolution / Math.sqrt(2));
+//                vectors[i][j].drawMe(g, j*gridResolution, i*gridResolution, size);
+                vectors[i][j].drawMe(g, j*gridResolution, i*gridResolution, size/Math.sqrt(2));
             }
         }
     }

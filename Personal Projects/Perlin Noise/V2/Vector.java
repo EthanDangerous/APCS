@@ -4,15 +4,15 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 public class Vector {
-    public int x;
-    public int y;
+    public double x;
+    public double y;
 
-    public Vector(int x, int y) {
+    public Vector(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    public Vector(int x, int y, int x2, int y2) {
+    public Vector(double x, double y, double x2, double y2) {
         this.x = x2-x;
         this.y = y2-y;
     }
